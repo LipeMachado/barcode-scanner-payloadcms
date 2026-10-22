@@ -1,6 +1,6 @@
 import { buildConfig } from 'payload'
 import { postgresAdapter } from '@payloadcms/db-postgres'
-import { barcodeScannerPlugin } from '@lipecode/barcode-scanner-payload'
+import { barcodeScannerPlugin } from '@lipecode/barcode-scanner-payloadcms'
 
 /**
  * Minimal host configuration used to show how the plugin is consumed.

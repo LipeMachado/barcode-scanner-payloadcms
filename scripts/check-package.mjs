@@ -46,8 +46,8 @@ try {
   await writeFile(
     join(consumer, 'index.ts'),
     [
-      "import { barcodeScannerPlugin } from '@lipecode/barcode-scanner-payload'",
-      "import { UsbScannerInput } from '@lipecode/barcode-scanner-payload/scanner'",
+      "import { barcodeScannerPlugin } from '@lipecode/barcode-scanner-payloadcms'",
+      "import { UsbScannerInput } from '@lipecode/barcode-scanner-payloadcms/scanner'",
       '',
       'void barcodeScannerPlugin({ fields: [{ collection: "products", field: "codeBar" }] })',
       'void UsbScannerInput',

@@ -4,7 +4,7 @@ import type { ScanValidationOptions } from './scanner/types.js'
 
 /** Component export resolved by Payload's import map. */
 export const BARCODE_SCANNER_COMPONENT_PATH =
-  '@lipecode/barcode-scanner-payload/client#BarcodeScannerField'
+  '@lipecode/barcode-scanner-payloadcms/client#BarcodeScannerField'
 
 export interface BarcodeScannerFieldOptions {
   /** Collection slug that owns the barcode field. */

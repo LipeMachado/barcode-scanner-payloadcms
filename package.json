@@ -1,8 +1,19 @@
 {
-  "name": "@lipecode/barcode-scanner-payload",
+  "name": "@lipecode/barcode-scanner-payloadcms",
   "version": "0.1.0",
   "description": "Barcode scanning for Payload CMS 3 admin fields, with camera, USB keyboard-wedge and manual entry.",
   "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/LipeMachado/barcode-scanner-payloadcms.git"
+  },
+  "homepage": "https://github.com/LipeMachado/barcode-scanner-payloadcms#readme",
+  "bugs": {
+    "url": "https://github.com/LipeMachado/barcode-scanner-payloadcms/issues"
+  },
+  "publishConfig": {
+    "access": "public"
+  },
   "type": "module",
   "main": "./dist/index.js",
   "types": "./dist/index.d.ts",

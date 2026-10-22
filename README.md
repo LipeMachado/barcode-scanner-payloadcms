@@ -1,4 +1,4 @@
-# @lipecode/barcode-scanner-payload
+# @lipecode/barcode-scanner-payloadcms
 
 Barcode scanning for **Payload CMS 3** admin fields. Adds a scan button to an
 existing `text` field and fills it with a value read by camera, USB
@@ -6,9 +6,10 @@ keyboard-wedge reader or manual entry.
 
 ## Status
 
-Pre-release (`0.1.0`). The npm package name was checked and is available; the
-package has not been published because publication requires the owner's explicit
-approval and access to the `@lipecode` npm scope.
+Pre-release (`0.1.0`). Repository:
+<https://github.com/LipeMachado/barcode-scanner-payloadcms>. The npm name
+`@lipecode/barcode-scanner-payloadcms` is available; the first publication under
+this name has not been made yet.
 
 <!-- Maintainers: keep release notes and usage examples here. -->
 
@@ -22,13 +23,14 @@ approval and access to the `@lipecode` npm scope.
 ## Install
 
 ```bash
-pnpm add @lipecode/barcode-scanner-payload
+pnpm add @lipecode/barcode-scanner-payloadcms
 ```
 
-For local development beside this repository:
+For local development beside this repository (the folder name follows your
+checkout; the GitHub repo is `barcode-scanner-payloadcms`):
 
 ```bash
-pnpm add file:../barcode-scanner-payload
+pnpm add file:../barcode-scanner-payloadcms
 ```
 
 ## Configure
@@ -36,7 +38,7 @@ pnpm add file:../barcode-scanner-payload
 ```ts
 // payload.config.ts
 import { buildConfig } from 'payload'
-import { barcodeScannerPlugin } from '@lipecode/barcode-scanner-payload'
+import { barcodeScannerPlugin } from '@lipecode/barcode-scanner-payloadcms'
 
 export default buildConfig({
   collections: [
@@ -111,7 +113,7 @@ import {
   ScannerDialog,
   UsbScannerInput,
   useCameraScanner,
-} from '@lipecode/barcode-scanner-payload/client'
+} from '@lipecode/barcode-scanner-payloadcms/client'
 
 <ScannerDialog
   open={open}
@@ -180,11 +182,20 @@ The package is ESM-only, matching Payload 3.
 ## Publishing
 
 ```bash
-npm view @lipecode/barcode-scanner-payload version   # should 404 until published
+npm view @lipecode/barcode-scanner-payloadcms version   # should 404 until published
+pnpm typecheck
 pnpm test
 pnpm build
-pnpm pack
+pnpm pack:check
 npm publish --access public
+```
+
+After the new name is published and consumers have migrated, deprecate the old
+package instead of deleting it:
+
+```bash
+npm deprecate @lipecode/barcode-scanner-payload \
+  "Renamed to @lipecode/barcode-scanner-payloadcms"
 ```
 
 Do not publish without the package owner's explicit approval. After publishing,
