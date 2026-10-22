@@ -98,7 +98,6 @@ export function useCameraScanner({
   onStatusChange,
   duplicateWindowMs = DEFAULT_CAMERA_OPTIONS.duplicateWindowMs,
   facingMode: initialFacingMode = 'environment',
-  mirrorPreview = true,
   scanDelayMs = DEFAULT_CAMERA_OPTIONS.scanDelayMs,
   scanSuccessDelayMs = DEFAULT_CAMERA_OPTIONS.scanSuccessDelayMs,
   validation,
@@ -287,5 +286,5 @@ export function useCameraScanner({
     }
   }, [releaseTracks])
 
-  return { videoRef, status, error, facingMode, previewMirrored: mirrorPreview, start, stop, flipCamera }
+  return { videoRef, status, error, facingMode, previewMirrored: true, start, stop, flipCamera }
 }

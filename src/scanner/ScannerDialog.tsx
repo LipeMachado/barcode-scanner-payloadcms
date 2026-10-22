@@ -25,8 +25,6 @@ export interface ScannerDialogProps {
    */
   allowManualEntry?: boolean
   autoStartCamera?: boolean
-  /** Mirror the camera preview horizontally. Default: true. */
-  mirrorPreview?: boolean
   validation?: ScanValidationOptions
   className?: string
   usbTerminator?: 'Enter' | 'Tab' | 'Timeout'
@@ -46,7 +44,6 @@ export function ScannerDialog({
   onStatusChange,
   title = 'Escanear código de barras',
   autoStartCamera = true,
-  mirrorPreview = true,
   validation,
   className,
   usbTerminator = 'Enter',
@@ -57,7 +54,6 @@ export function ScannerDialog({
     <ScannerDialogContent
       autoStartCamera={autoStartCamera}
       className={className}
-      mirrorPreview={mirrorPreview}
       onClose={onClose}
       onScan={onScan}
       onStatusChange={onStatusChange}
@@ -74,7 +70,6 @@ function ScannerDialogContent({
   onStatusChange,
   title,
   autoStartCamera,
-  mirrorPreview,
   validation,
   className,
   usbTerminator,
@@ -95,7 +90,6 @@ function ScannerDialogContent({
       finish('completed')
     },
     onStatusChange,
-    mirrorPreview,
     validation,
   })
 
@@ -141,9 +135,7 @@ function ScannerDialogContent({
         <video
           aria-label="Prévia da câmera"
           autoPlay
-          className={`bcsp-camera__video${
-            camera.previewMirrored ? ' bcsp-camera__video--mirrored' : ''
-          }`}
+          className="bcsp-camera__video bcsp-camera__video--mirrored"
           muted
           playsInline
           ref={camera.videoRef}

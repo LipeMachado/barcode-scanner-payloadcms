@@ -58,8 +58,6 @@ export interface CameraScannerOptions {
   duplicateWindowMs?: number
   /** Preferred camera. Defaults to the rear camera (`environment`). */
   facingMode?: 'environment' | 'user'
-  /** Mirror the camera preview horizontally. Defaults to `true`. */
-  mirrorPreview?: boolean
   /** Delay between decode attempts. Default 150 ms. */
   scanDelayMs?: number
   /** Delay between successful results. Default 750 ms. */
