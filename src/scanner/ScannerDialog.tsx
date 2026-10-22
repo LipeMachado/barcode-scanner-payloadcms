@@ -135,7 +135,9 @@ function ScannerDialogContent({
         <video
           aria-label="Prévia da câmera"
           autoPlay
-          className="bcsp-camera__video"
+          className={`bcsp-camera__video${
+            camera.previewMirrored ? ' bcsp-camera__video--mirrored' : ''
+          }`}
           muted
           playsInline
           ref={camera.videoRef}
