@@ -68,6 +68,7 @@
     "react-dom": ">=19.0.0"
   },
   "dependencies": {
+    "@lipecode/barcode-scanner-payloadcms": "0.1.0",
     "@zxing/browser": "^0.2.1"
   },
   "devDependencies": {

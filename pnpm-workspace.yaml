@@ -1,2 +1,4 @@
 allowBuilds:
   esbuild: true
+minimumReleaseAgeExclude:
+  - '@lipecode/barcode-scanner-payloadcms@0.1.0'

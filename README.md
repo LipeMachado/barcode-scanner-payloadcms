@@ -6,10 +6,9 @@ keyboard-wedge reader or manual entry.
 
 ## Status
 
-Pre-release (`0.1.0`). Repository:
-<https://github.com/LipeMachado/barcode-scanner-payloadcms>. The npm name
-`@lipecode/barcode-scanner-payloadcms` is available; the first publication under
-this name has not been made yet.
+Pre-release (`0.1.0`), published as
+`@lipecode/barcode-scanner-payloadcms`. Repository:
+<https://github.com/LipeMachado/barcode-scanner-payloadcms>.
 
 <!-- Maintainers: keep release notes and usage examples here. -->
 
@@ -182,7 +181,7 @@ The package is ESM-only, matching Payload 3.
 ## Publishing
 
 ```bash
-npm view @lipecode/barcode-scanner-payloadcms version   # should 404 until published
+npm view @lipecode/barcode-scanner-payloadcms version
 pnpm typecheck
 pnpm test
 pnpm build
@@ -190,8 +189,8 @@ pnpm pack:check
 npm publish --access public
 ```
 
-After the new name is published and consumers have migrated, deprecate the old
-package instead of deleting it:
+To release a new version, bump `version` before publishing. After consumers
+migrate from the old name, deprecate it instead of deleting it:
 
 ```bash
 npm deprecate @lipecode/barcode-scanner-payload \
