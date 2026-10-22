@@ -1,6 +1,6 @@
 {
   "name": "@lipecode/barcode-scanner-payloadcms",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "Barcode scanning for Payload CMS 3 admin fields, with camera, USB keyboard-wedge and manual entry.",
   "license": "MIT",
   "repository": {

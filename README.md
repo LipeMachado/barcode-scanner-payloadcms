@@ -87,6 +87,7 @@ pnpm payload generate:importmap
 | `fields[].allowManualEntry` | `boolean` | `true` | When `false`, marks the field read-only in the Admin UI. |
 | `fields[].autoStartCamera` | `boolean` | `true` | Camera starts when the user opens the scanner. |
 | `fields[].facingMode` | `'environment' \| 'user'` | `'environment'` | Preferred camera. |
+| `fields[].mirrorPreview` | `boolean` | `true` | Mirrors the camera preview horizontally. |
 | `fields[].validation` | `{ minLength?, maxLength?, pattern? }` | printable ASCII, 1–256 chars | Client-side guard. Server validation is still required. |
 | `fields[].usbTerminator` | `'Enter' \| 'Tab' \| 'Timeout'` | `'Enter'` | Delimiter sent by the reader. |
 | `fields[].afterScan.focusField` | `string` | – | Focus an input by `name` after the read. |

@@ -37,7 +37,7 @@ interface UseCameraScannerResult {
   status: ScannerStatus
   error: ScanError | null
   facingMode: 'environment' | 'user'
-  /** True when the active camera is front-facing and the preview should be mirrored. */
+  /** True when the camera preview should be mirrored horizontally. */
   previewMirrored: boolean
   start: () => Promise<void>
   stop: () => void
@@ -50,16 +50,6 @@ const DEFAULT_CAMERA_OPTIONS: Required<
   duplicateWindowMs: 1500,
   scanDelayMs: 150,
   scanSuccessDelayMs: 750,
-}
-
-function resolvePreviewMirrored(
-  stream: MediaStream | null | undefined,
-  requested: 'environment' | 'user',
-): boolean {
-  const actual = stream?.getVideoTracks()[0]?.getSettings().facingMode
-  if (actual === 'user') return true
-  if (actual === 'environment') return false
-  return requested === 'user'
 }
 
 function mapCameraError(error: unknown): ScanError {
@@ -108,6 +98,7 @@ export function useCameraScanner({
   onStatusChange,
   duplicateWindowMs = DEFAULT_CAMERA_OPTIONS.duplicateWindowMs,
   facingMode: initialFacingMode = 'environment',
+  mirrorPreview = true,
   scanDelayMs = DEFAULT_CAMERA_OPTIONS.scanDelayMs,
   scanSuccessDelayMs = DEFAULT_CAMERA_OPTIONS.scanSuccessDelayMs,
   validation,
@@ -124,7 +115,6 @@ export function useCameraScanner({
   const [status, setStatus] = useState<ScannerStatus>('idle')
   const [error, setError] = useState<ScanError | null>(null)
   const [facingMode, setFacingMode] = useState<'environment' | 'user'>(initialFacingMode)
-  const [previewMirrored, setPreviewMirrored] = useState(initialFacingMode === 'user')
   const [restartToken, setRestartToken] = useState(0)
 
   onScanRef.current = onScan
@@ -190,7 +180,6 @@ export function useCameraScanner({
 
     controlsRef.current?.stop()
     controlsRef.current = null
-    setPreviewMirrored(facingMode === 'user')
     updateStatus('starting')
 
     try {
@@ -252,9 +241,6 @@ export function useCameraScanner({
 
       controlsRef.current = controls
       stopRequestedRef.current = false
-      setPreviewMirrored(
-        resolvePreviewMirrored(video.srcObject instanceof MediaStream ? video.srcObject : null, facingMode),
-      )
       updateStatus('scanning')
     } catch (cause) {
       if (sessionRef.current !== session) return
@@ -301,5 +287,5 @@ export function useCameraScanner({
     }
   }, [releaseTracks])
 
-  return { videoRef, status, error, facingMode, previewMirrored, start, stop, flipCamera }
+  return { videoRef, status, error, facingMode, previewMirrored: mirrorPreview, start, stop, flipCamera }
 }

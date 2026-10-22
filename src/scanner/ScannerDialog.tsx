@@ -25,6 +25,8 @@ export interface ScannerDialogProps {
    */
   allowManualEntry?: boolean
   autoStartCamera?: boolean
+  /** Mirror the camera preview horizontally. Default: true. */
+  mirrorPreview?: boolean
   validation?: ScanValidationOptions
   className?: string
   usbTerminator?: 'Enter' | 'Tab' | 'Timeout'
@@ -44,6 +46,7 @@ export function ScannerDialog({
   onStatusChange,
   title = 'Escanear código de barras',
   autoStartCamera = true,
+  mirrorPreview = true,
   validation,
   className,
   usbTerminator = 'Enter',
@@ -54,6 +57,7 @@ export function ScannerDialog({
     <ScannerDialogContent
       autoStartCamera={autoStartCamera}
       className={className}
+      mirrorPreview={mirrorPreview}
       onClose={onClose}
       onScan={onScan}
       onStatusChange={onStatusChange}
@@ -70,6 +74,7 @@ function ScannerDialogContent({
   onStatusChange,
   title,
   autoStartCamera,
+  mirrorPreview,
   validation,
   className,
   usbTerminator,
@@ -90,6 +95,7 @@ function ScannerDialogContent({
       finish('completed')
     },
     onStatusChange,
+    mirrorPreview,
     validation,
   })
 

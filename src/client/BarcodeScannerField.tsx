@@ -19,6 +19,7 @@ export interface BarcodeScannerFieldClientProps {
   allowManualEntry?: boolean
   autoStartCamera?: boolean
   facingMode?: 'environment' | 'user'
+  mirrorPreview?: boolean
   validation?: ScanValidationOptions
   usbTerminator?: 'Enter' | 'Tab' | 'Timeout'
   afterScan?: {
@@ -48,6 +49,7 @@ export function BarcodeScannerField({
   allowManualEntry = true,
   autoStartCamera = true,
   facingMode = 'environment',
+  mirrorPreview = true,
   validation,
   usbTerminator = 'Enter',
   afterScan,
@@ -141,6 +143,7 @@ export function BarcodeScannerField({
       {open ? (
         <ScannerDialog
           autoStartCamera={autoStartCamera}
+          mirrorPreview={mirrorPreview}
           onClose={() => setOpen(false)}
           open={open}
           onScan={handleScan}

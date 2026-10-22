@@ -23,6 +23,8 @@ export interface BarcodeScannerFieldOptions {
   autoStartCamera?: boolean
   /** Preferred camera when the scan panel opens. Default: "environment". */
   facingMode?: 'environment' | 'user'
+  /** Mirror the camera preview horizontally. Default: true. */
+  mirrorPreview?: boolean
   /** Validation applied by the camera/USB reader before writing the field. */
   validation?: ScanValidationOptions
   /** Delimiter sent by a USB keyboard-wedge reader. Default: "Enter". */
@@ -116,6 +118,7 @@ function decorateField(field: AnyField, options: BarcodeScannerFieldOptions): An
                 allowManualEntry: options.allowManualEntry,
                 autoStartCamera: options.autoStartCamera,
                 facingMode: options.facingMode,
+                mirrorPreview: options.mirrorPreview,
                 validation: options.validation,
                 usbTerminator: options.usbTerminator,
                 afterScan: options.afterScan,
