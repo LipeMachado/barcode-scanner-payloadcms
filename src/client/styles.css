@@ -1,0 +1,280 @@
+/* Barcode scanner plugin — scoped styles for Payload Admin. */
+
+.bcsp-field {
+  margin-top: 0.75rem;
+}
+
+.bcsp-field__row {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+.bcsp-field__status {
+  color: var(--theme-elevation-600, #5b5b5b);
+  font-size: 0.8rem;
+  line-height: 1.4;
+}
+
+.bcsp-button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  min-height: 2.5rem;
+  padding: 0.55rem 0.9rem;
+  border: 1px solid var(--theme-elevation-200, #d4d4d4);
+  border-radius: var(--style-radius-s, 3px);
+  background: var(--theme-elevation-0, #fff);
+  color: var(--theme-elevation-800, #1d1d1d);
+  cursor: pointer;
+  font: inherit;
+  font-size: 0.82rem;
+  font-weight: 600;
+  line-height: 1.2;
+  transition:
+    background-color 120ms ease,
+    border-color 120ms ease;
+}
+
+.bcsp-button:hover {
+  background: var(--theme-elevation-50, #f6f6f6);
+  border-color: var(--theme-elevation-300, #b9b9b9);
+}
+
+.bcsp-button:focus-visible {
+  outline: 2px solid var(--theme-success-500, #2f7d5b);
+  outline-offset: 2px;
+}
+
+.bcsp-button:disabled {
+  cursor: not-allowed;
+  opacity: 0.55;
+}
+
+.bcsp-button--scan {
+  border-color: var(--theme-elevation-800, #1d1d1d);
+  background: var(--theme-elevation-800, #1d1d1d);
+  color: var(--theme-elevation-0, #fff);
+}
+
+.bcsp-button--scan:hover {
+  background: var(--theme-elevation-900, #000);
+  border-color: var(--theme-elevation-900, #000);
+}
+
+.bcsp-button--small {
+  min-height: 2.1rem;
+  padding: 0.4rem 0.7rem;
+  font-size: 0.76rem;
+}
+
+.bcsp-button--ghost {
+  border-color: rgb(255 255 255 / 40%);
+  background: rgb(0 0 0 / 30%);
+  color: #fff;
+}
+
+.bcsp-button--ghost:hover {
+  background: rgb(0 0 0 / 55%);
+  border-color: #fff;
+}
+
+.bcsp-button--icon {
+  min-width: 2.5rem;
+}
+
+.bcsp-icon-button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 2.25rem;
+  height: 2.25rem;
+  border: 0;
+  border-radius: 50%;
+  background: transparent;
+  color: inherit;
+  cursor: pointer;
+}
+
+.bcsp-icon-button:hover {
+  background: var(--theme-elevation-100, #ededed);
+}
+
+.bcsp-icon-button:focus-visible {
+  outline: 2px solid var(--theme-success-500, #2f7d5b);
+  outline-offset: 2px;
+}
+
+.bcsp-hint {
+  margin: 0.45rem 0 0;
+  color: var(--theme-elevation-500, #6d6d6d);
+  font-size: 0.76rem;
+  line-height: 1.45;
+}
+
+/* Dialog */
+
+.bcsp-dialog {
+  width: min(38rem, calc(100vw - 2rem));
+  max-height: calc(100dvh - 2rem);
+  padding: 0;
+  border: 0;
+  border-radius: 6px;
+  background: var(--theme-elevation-0, #fff);
+  color: var(--theme-elevation-800, #1d1d1d);
+  box-shadow: 0 24px 80px rgb(0 0 0 / 35%);
+  overflow: auto;
+}
+
+.bcsp-dialog::backdrop {
+  background: rgb(8 10 9 / 72%);
+}
+
+.bcsp-dialog__header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  padding: 0.9rem 1rem;
+}
+
+.bcsp-dialog__title {
+  margin: 0;
+  font-size: 0.95rem;
+  font-weight: 600;
+  letter-spacing: -0.01em;
+}
+
+.bcsp-camera {
+  position: relative;
+  display: grid;
+  place-items: center;
+  min-height: min(46vh, 20rem);
+  overflow: hidden;
+  background: #0b0e0d;
+  color: #fff;
+}
+
+.bcsp-camera__video {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.bcsp-camera[data-status='starting'] .bcsp-camera__video,
+.bcsp-camera[data-status='error'] .bcsp-camera__video,
+.bcsp-camera[data-status='permission-denied'] .bcsp-camera__video,
+.bcsp-camera[data-status='unavailable'] .bcsp-camera__video {
+  opacity: 0.2;
+}
+
+.bcsp-camera__frame {
+  position: relative;
+  width: min(70%, 22rem);
+  aspect-ratio: 16 / 9;
+  border: 1px solid rgb(255 255 255 / 65%);
+  border-radius: 3px;
+  box-shadow: 0 0 0 100vmax rgb(4 6 5 / 28%);
+}
+
+.bcsp-camera__frame::after {
+  position: absolute;
+  top: 50%;
+  left: 8%;
+  width: 84%;
+  height: 1px;
+  background: #d9ff6b;
+  content: '';
+  opacity: 0.75;
+}
+
+.bcsp-camera__status {
+  position: absolute;
+  right: 1rem;
+  bottom: 3.5rem;
+  left: 1rem;
+  z-index: 1;
+  margin: 0 auto;
+  max-width: 26rem;
+  padding: 0.45rem 0.7rem;
+  border-radius: 3px;
+  background: rgb(0 0 0 / 62%);
+  color: #fff;
+  font-size: 0.78rem;
+  line-height: 1.4;
+  text-align: center;
+}
+
+.bcsp-camera__actions {
+  position: absolute;
+  right: 1rem;
+  bottom: 0.85rem;
+  left: 1rem;
+  z-index: 1;
+  display: flex;
+  justify-content: space-between;
+  gap: 0.5rem;
+}
+
+.bcsp-dialog__manual {
+  padding: 1rem;
+}
+
+.bcsp-dialog__loading {
+  padding: 2rem 1rem;
+  color: var(--theme-elevation-600, #5b5b5b);
+  font-size: 0.85rem;
+  text-align: center;
+}
+
+/* USB / manual input */
+
+.bcsp-usb {
+  display: grid;
+  grid-template-columns: 1fr auto;
+  gap: 0.45rem 0.6rem;
+  align-items: end;
+}
+
+.bcsp-usb__label {
+  grid-column: 1 / -1;
+  color: var(--theme-elevation-700, #3d3d3d);
+  font-size: 0.78rem;
+  font-weight: 600;
+}
+
+.bcsp-usb__input {
+  width: 100%;
+  min-height: 2.75rem;
+  padding: 0.55rem 0.65rem;
+  border: 1px solid var(--theme-elevation-200, #d4d4d4);
+  border-radius: var(--style-radius-s, 3px);
+  background: var(--theme-elevation-0, #fff);
+  color: var(--theme-elevation-800, #1d1d1d);
+  font: inherit;
+  font-size: 0.95rem;
+  letter-spacing: 0.02em;
+}
+
+.bcsp-usb__input:focus {
+  border-color: var(--theme-success-500, #2f7d5b);
+  outline: 2px solid color-mix(in srgb, var(--theme-success-500, #2f7d5b) 25%, transparent);
+  outline-offset: 0;
+}
+
+.bcsp-usb[data-state='error'] .bcsp-usb__input {
+  border-color: var(--theme-error-500, #b3261e);
+}
+
+.bcsp-usb .bcsp-hint {
+  grid-column: 1 / -1;
+  margin-top: 0;
+}
+
+.bcsp-usb .bcsp-button {
+  align-self: end;
+}
